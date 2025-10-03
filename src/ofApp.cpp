@@ -28,10 +28,7 @@ void ofApp::setup() {
 	gui.setup();
 	gui.add(debug.set("debug", false));
 	
-	gui.add(shadertoy.parametersA);
-	gui.add(shadertoy.parametersC);
-	gui.add(shadertoy.parametersD);
-	gui.add(shadertoy.parametersImage);
+	gui.add(shadertoy.parameters);
 	gui.loadFromFile("settings.xml");
 }
 

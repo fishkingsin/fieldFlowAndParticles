@@ -1,3 +1,4 @@
+uniform float particleSpeedScale;
 void mainImage( out vec4 fragColor, in vec2 fragCoord ) {
 	vec2 uv = fragCoord;
 	vec2 p = texture(iChannel2, uv).xy;
@@ -8,5 +9,5 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord ) {
 		p = fragCoord + hash21(float(mFrame)) - 0.5;
 	}
 	vec2 v = 2. * texture(iChannel0, uv).xy - 1.;
-	fragColor.xy = p + v;
+	fragColor.xy = p + (v * particleSpeedScale);
 }

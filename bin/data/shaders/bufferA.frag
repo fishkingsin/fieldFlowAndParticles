@@ -24,6 +24,13 @@ uniform float mode_1_twist;
 
 uniform bool isArraw;
 
+// Parameterized uniforms for mode 1 color (was hard-coded)
+uniform float mode1_phase;    // default 1.0 (phase added to p.x+p.y for R,G)
+uniform float mode1_rg_amp;   // default 0.5 (amplitude for R,G)
+uniform float mode1_rg_bias;  // default 0.5 (bias for R,G)
+uniform float mode1_b_amp;    // default 0.3 (amplitude for B)
+uniform float mode1_b_bias;   // default 0.5 (bias for B)
+
 const vec3 luma = vec3(0.2126, 0.7152, 0.0722);
 const vec3 baseColor = vec3(0.2126, 0.7152, 1);
 
@@ -131,10 +138,14 @@ vec3 getRGB(in Field fld,in int mode){
     
     if(mode == 1){
         vec2 p = fld.pos;
-        float r=cos(p.x+p.y+1.)*.5+.5;
-        float g=sin(p.x+p.y+1.)*.5+.5;
-        float b=(sin(p.x+p.y)+cos(p.x+p.y))*.3+.5;
-        vec3 col = sin(vec3(-.3,0.1,0.5)+p.x-p.y)*0.65+0.35;
+        float sum = p.x + p.y;
+        // Parameterized version of original:
+        // r=cos(sum+1.)*0.5+0.5
+        // g=sin(sum+1.)*0.5+0.5
+        // b=(sin(sum)+cos(sum))*0.3+0.5
+        float r = cos(sum + mode1_phase) * mode1_rg_amp + mode1_rg_bias;
+        float g = sin(sum + mode1_phase) * mode1_rg_amp + mode1_rg_bias;
+        float b = (sin(sum) + cos(sum)) * mode1_b_amp + mode1_b_bias;
         return vec3(r,g,b);
     }
 
