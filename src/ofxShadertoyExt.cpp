@@ -17,6 +17,21 @@ void ofxShadertoyExt::setup() {
 	windowHeight = ofGetWindowHeight();
 	
 	fileChangedTimes.clear();
+	
+	parameters.setName("shader uniforms");
+	// Shader GUI parameters (defaults match original shader constants)
+	parameters.add(arrowDensity.set("arrow_density", 4.5f, 0.5f, 20.0f));
+	parameters.add(arrowLength.set("arrow_length", 0.45f, 0.05f, 2.0f));
+	parameters.add(iter1.set("iterationTime1", 10, 1, 64));
+	parameters.add(iter2.set("iterationTime2", 10, 1, 64));
+	parameters.add(vectorFieldMode.set("vector_field_mode", 0, 0, 1));
+	parameters.add(scaleParam.set("scale", 5.0f, 0.1f, 20.0f));
+	parameters.add(velocityX.set("velocity_x", 0.1f, -5.0f, 5.0f));
+	parameters.add(velocityY.set("velocity_y", 0.2f, -5.0f, 5.0f));
+	parameters.add(mode2Speed.set("mode_2_speed", 2.5f, 0.0f, 10.0f));
+	parameters.add(mode1Detail.set("mode_1_detail", 200.0f, 1.0f, 500.0f));
+	parameters.add(mode1Twist.set("mode_1_twist", 50.0f, 0.0f, 200.0f));
+	parameters.add(showArrows.set("isArraw", false));
 }
 
 bool ofxShadertoyExt::load(string shaderfilename, Buffer buffer) {
@@ -90,6 +105,17 @@ void ofxShadertoyExt::applyTexture(ofxShadertoy::Buffer buffer){
 	}
 	
 	
+}
+
+void ofxShadertoyExt::setupAdditionalShaderUniforms(const ofShader &bufShader, Buffer buffer) {
+	switch (buffer) {
+		case ofxShadertoy::Buffer::BufferA:
+			bufShader.setUniforms(parameters);
+			break;
+			
+		default:
+			break;
+	}
 }
 
 void ofxShadertoyExt::drawDebug() {

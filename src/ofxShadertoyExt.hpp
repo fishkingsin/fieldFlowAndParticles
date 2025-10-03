@@ -19,6 +19,7 @@ public:
 	ofTexture fboA, fboB, fboC, fboD;
 	bool load(string shaderfilename, Buffer buffer);
 	void applyTexture(ofxShadertoy::Buffer buffer);
+	void setupAdditionalShaderUniforms(ofShader const & bufShader, Buffer buffer);
 	void drawDebug();
 	
 	
@@ -34,7 +35,8 @@ public:
 	void setGeometryInputType(GLenum type);
 	void setGeometryOutputType(GLenum type);
 	void setGeometryOutputCount(int count);
-	
+	// Shader control parameters
+	ofParameterGroup parameters;
 private:
 	
 	bool bWatchingFiles;
@@ -53,6 +55,20 @@ private:
 	ofxShadertoy::Buffer changeBuffer;
 	string openFile(ofFile file, string fileName);
 	
+	
+	
+	ofParameter<float> arrowDensity;
+	ofParameter<float> arrowLength;
+	ofParameter<int> iter1;
+	ofParameter<int> iter2;
+	ofParameter<int> vectorFieldMode;
+	ofParameter<float> scaleParam;
+	ofParameter<float> velocityX;
+	ofParameter<float> velocityY;
+	ofParameter<float> mode2Speed;
+	ofParameter<float> mode1Detail;
+	ofParameter<float> mode1Twist;
+	ofParameter<bool> showArrows;
 };
 
 #endif /* ofxShadertoyExt_hpp */

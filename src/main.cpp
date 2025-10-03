@@ -4,12 +4,11 @@
 //========================================================================
 int main( ){
 	ofGLFWWindowSettings settings;
-	settings.glVersionMajor = 3;
-	settings.glVersionMinor = 3;
+	settings.glVersionMajor = 4;
+	settings.glVersionMinor = 1;
 	settings.windowMode = OF_WINDOW;
 	
-	settings.setSize(1920, 1080);
-	
+	settings.setSize(1280, 720);
 	
 	shared_ptr<ofAppBaseWindow> mainWindow = ofCreateWindow(settings);
 	mainWindow->setWindowTitle("field flow and particles");

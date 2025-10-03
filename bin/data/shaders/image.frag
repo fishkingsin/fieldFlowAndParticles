@@ -6,20 +6,22 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord ) {
 	float r = texture(iChannel3, uv).x;
 	//r = 0.9 - 0.8 * r;
 	fragColor = vec4(vec3(r,r,r)*texCol.rgb, 1);
+	float Y = slideValY * iResolution.y;
+	float X = slideValX * iResolution.x;
 	if (TESTING==1){
-		if(uv.x<slideValX && uv.y>slideValY){
+		if(uv.x < X && uv.y > Y){
 			fragColor = texture(iChannel0, uv);
 		}
 		
-		if(uv.x>slideValX && uv.y>slideValY){
+		if(uv.x > X && uv.y > Y){
 			fragColor = texture(iChannel1, uv);
 		}
 		
-		if(uv.x<slideValX && uv.y<slideValY){
+		if(uv.x < X && uv.y < Y){
 			fragColor = texture(iChannel3, uv);
 		}
 		
-		if(uv.x>slideValX && uv.y<slideValY){
+		if(uv.x > X && uv.y < Y){
 			fragColor = texture(iChannel2, uv);
 		}
 	}

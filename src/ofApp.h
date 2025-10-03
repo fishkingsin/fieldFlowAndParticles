@@ -27,20 +27,6 @@ public:
 	ofxPanel gui;
 	ofParameter<bool> debug;
 
-	// Shader control parameters
-	ofParameter<float> arrowDensity;
-	ofParameter<float> arrowLength;
-	ofParameter<int> iter1;
-	ofParameter<int> iter2;
-	ofParameter<int> vectorFieldMode;
-	ofParameter<float> scaleParam;
-	ofParameter<float> velocityX;
-	ofParameter<float> velocityY;
-	ofParameter<float> mode2Speed;
-	ofParameter<float> mode1Detail;
-	ofParameter<float> mode1Twist;
-	ofParameter<bool> showArrows;
-
 	ofxShadertoyExt shadertoy;
 	int frame, densityWidth, densityHeight, simulationWidth, simulationHeight, windowWidth, windowHeight;
 };
