@@ -20,6 +20,27 @@
 		<damping>0.969388</damping>
 	</group>
 	<image>
-		<baseColor>0.2126, 0.7152, 1</baseColor>
+		<baseColor>0.265625, 0.265625, 0.260417</baseColor>
+		<colorised>0.5</colorised>
 	</image>
+	<buffer_A>
+		<vector_mode>1</vector_mode>
+		<arrow_density>4.5</arrow_density>
+		<arrow_length>0.45</arrow_length>
+		<iterationTime1>2</iterationTime1>
+		<iterationTime2>14</iterationTime2>
+		<scale>0.709184</scale>
+		<velocity_x>0.1</velocity_x>
+		<velocity_y>0.2</velocity_y>
+		<mode_2_speed>0.204082</mode_2_speed>
+		<mode_1_detail>200</mode_1_detail>
+		<mode_1_twist>50</mode_1_twist>
+		<isArraw>0</isArraw>
+	</buffer_A>
+	<buffer_C>
+		<smpDst>1</smpDst>
+	</buffer_C>
+	<buffer_D>
+		<damping>0.959184</damping>
+	</buffer_D>
 </group>
