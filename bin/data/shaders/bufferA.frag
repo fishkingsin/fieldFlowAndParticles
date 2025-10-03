@@ -7,25 +7,25 @@
 
 
 #define time iTime
+uniform int vector_mode;
+uniform float arrow_density;
+uniform float arrow_length;
 
-uniform float arrow_density = 4.5;
-uniform float arrow_length = .45;
-
-uniform int iterationTime1 = 20;
-uniform int iterationTime2 = 20;
-uniform int vector_field_mode = 0;
+uniform int iterationTime1;
+uniform int iterationTime2;
 uniform float scale;
 
-uniform float velocity_x = 0.1;
-uniform float velocity_y = 0.2;
+uniform float velocity_x;
+uniform float velocity_y;
 
-uniform float mode_2_speed = 2.5;
-uniform float mode_1_detail = 200.;
-uniform float mode_1_twist = 50.;
+uniform float mode_2_speed;
+uniform float mode_1_detail;
+uniform float mode_1_twist;
 
-uniform bool isArraw = false;
+uniform bool isArraw;
 
 const vec3 luma = vec3(0.2126, 0.7152, 0.0722);
+const vec3 baseColor = vec3(0.2126, 0.7152, 1);
 
 
 float f(in vec2 p)
@@ -149,7 +149,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
     vec2 uv = fragCoord.xy / iResolution.xy;
     vec3 col;
     float fviz;
-    int vector_mode = 1;
+    
     // int vector_mode = 0;
     // if(uv.x > slideValX){
     //     vector_mode = 1;

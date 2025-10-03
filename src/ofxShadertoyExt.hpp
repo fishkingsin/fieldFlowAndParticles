@@ -36,7 +36,10 @@ public:
 	void setGeometryOutputType(GLenum type);
 	void setGeometryOutputCount(int count);
 	// Shader control parameters
-	ofParameterGroup parameters;
+	ofParameterGroup parametersA;
+	ofParameterGroup parametersC;
+	ofParameterGroup parametersD;
+	ofParameterGroup parametersImage;
 private:
 	
 	bool bWatchingFiles;
@@ -56,7 +59,7 @@ private:
 	string openFile(ofFile file, string fileName);
 	
 	
-	
+	ofParameter<int> vector_mode;
 	ofParameter<float> arrowDensity;
 	ofParameter<float> arrowLength;
 	ofParameter<int> iter1;
@@ -69,6 +72,10 @@ private:
 	ofParameter<float> mode1Detail;
 	ofParameter<float> mode1Twist;
 	ofParameter<bool> showArrows;
+	ofParameter<int> smpDst;
+	ofParameter<float> damping;
+	ofParameter<ofVec3f> baseColor;
+	ofParameter<float> colorised;
 };
 
 #endif /* ofxShadertoyExt_hpp */
