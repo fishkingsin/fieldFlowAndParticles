@@ -68,17 +68,17 @@ void ofxShadertoyExt::applyTexture(ofxShadertoy::Buffer buffer){
 			return;
 		case Buffer::BufferB:
 			setTexture(0, fboA, buffer);
-			setTexture(1, fboB, buffer);
+//			setTexture(1, fboB, buffer);
 			setTexture(2, fboC, buffer);
-			setTexture(3, fboD, buffer);
+//			setTexture(3, fboD, buffer);
 		case Buffer::BufferC:
-			setTexture(0, fboA, buffer);
+//			setTexture(0, fboA, buffer);
 			setTexture(1, fboB, buffer);
-			setTexture(2, fboC, buffer);
-			setTexture(3, fboD, buffer);
+//			setTexture(2, fboC, buffer);
+//			setTexture(3, fboD, buffer);
 		case Buffer::BufferD:
-			setTexture(0, fboA, buffer);
-			setTexture(1, fboB, buffer);
+//			setTexture(0, fboA, buffer);
+//			setTexture(1, fboB, buffer);
 			setTexture(2, fboC, buffer);
 			setTexture(3, fboD, buffer);
 		case Buffer::Image:
@@ -96,7 +96,7 @@ void ofxShadertoyExt::drawDebug() {
 	int displayWidth = 320;
 	int displayHeight = 180;
 	fboA.draw(ofGetWindowWidth() - displayWidth, 0, displayWidth, displayHeight);
-	fboB.draw(ofGetWindowWidth() - displayWidth, displayHeight, simulationWidth, displayHeight);
+	fboB.draw(ofGetWindowWidth() - displayWidth, displayHeight, displayWidth, displayHeight);
 	fboC.draw(ofGetWindowWidth() - displayWidth, displayHeight * 2, displayWidth, displayHeight);
 	fboD.draw(ofGetWindowWidth() - displayWidth, displayHeight * 3, displayWidth, displayHeight);
 }

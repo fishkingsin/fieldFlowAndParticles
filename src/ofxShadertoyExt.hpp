@@ -52,6 +52,7 @@ private:
 	vector< std::time_t > fileChangedTimes;
 	ofxShadertoy::Buffer changeBuffer;
 	string openFile(ofFile file, string fileName);
+	
 };
 
 #endif /* ofxShadertoyExt_hpp */
